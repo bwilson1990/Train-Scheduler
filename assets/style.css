@@ -1,0 +1,9 @@
+#trainHeader {
+    background: url(../assets/images/choochoo.jpg);
+    background-color: white;
+    color: black;
+    background-repeat: no-repeat;
+    /* background-size: cover; */
+    background-position: center;
+    padding: 6rem 2rem;
+}
