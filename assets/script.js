@@ -19,7 +19,7 @@ var config = {
     var trainName = $("#train-name-input").val().trim();
     var trainDestination = $("#destination-input").val().trim();
     var trainTime = moment($("#time-input").val().trim(), "HH:mm").format("X");
-    var trainFrequency = $("#frequency-input").val().trim();
+    var trainFrequency = moment($("#frequency-input").val().trim(), "mm").format("X");
   
     // Creates local "temporary" object for holding employee data
     var newTrain = {
@@ -33,12 +33,12 @@ var config = {
     database.ref().push(newTrain);
   
     // Logs everything to console
-    console.log(newTrain.name);
-    console.log(newTrain.destination);
-    console.log(newTrain.time);
-    console.log(newTrain.frequency);
+    // console.log(newTrain.name);
+    // console.log(newTrain.destination);
+    // console.log(newTrain.time);
+    // console.log(newTrain.frequency);
   
-    alert("Employee successfully added");
+    alert("New Train Added!");
   
     // Clears all of the text-boxes
     $("#train-name-input").val("");
@@ -58,17 +58,30 @@ var config = {
     var trainFrequency = childSnapshot.val().frequency;
   
     // Train Info
-    console.log(trainName);
-    console.log(trainDestination);
-    console.log(trainTime);
-    console.log(trainFrequency);
+    // console.log(trainName);
+    // console.log(trainDestination);
+    // console.log(trainTime);
+    // console.log(trainFrequency);
   
     // Prettify the Train
     var trainTimePretty = moment.unix(trainTime).format("LT");
-  
+    console.log(trainTimePretty);
+    console.log(trainFrequency)
+    console.log(trainTime) // train time is long unix number
 
-    var minutesAway = trainTime - trainFrequency;
+    
+    // Cannot get the Math for Minutes Away working correctly 
 
+    
+    var minutesAway = moment(trainTime - trainFrequency).format("mm");
+    // result is 56 and 57 min(incorrect)
+
+    // var minutesAway = trainTime - trainFrequency;
+    // result is a number but the math is incorrect
+
+    // var minutesAway = moment(trainTime)
+    // .diff(trainFrequency, "mm");
+    // result is NaN
   
   
     // Create the new row
@@ -77,9 +90,7 @@ var config = {
       $("<td>").text(trainDestination),
       $("<td>").text(trainFrequency),
       $("<td>").text(trainTimePretty),
-      $("<td>").text(minutesAway),
-
-
+      $("<td>").text(minutesAway)
     );
   
     // Append the new row to the table
