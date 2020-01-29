@@ -36,3 +36,9 @@ Fill out the Train form, be sure to fill it in as directed. Hit submit, train sc
 ## Deployed Link
 
 [Train Scheduler](https://bwilson1990.github.io/Train-Scheduler/)
+
+---
+
+## Screenshot
+
+![homepage](assets/images/05-train-tracker.png)
