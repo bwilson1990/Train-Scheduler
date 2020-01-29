@@ -27,9 +27,9 @@ Fill out the Train form, be sure to fill it in as directed. Hit submit, train sc
 -Root
 * index.html
 * assets
-    * style.css
-    * script.js
-  * images
+   * style.css
+   * script.js
+* images
 
 ---
 
